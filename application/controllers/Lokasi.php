@@ -53,7 +53,28 @@ class Lokasi extends CI_Controller
 
     public function edit($id)
     {
-        // Logika untuk mengedit data proyek lokasi
+        $this->load->model('Lokasi_model');
+        $data['lokasi'] = $this->Lokasi_model->get_by_id($id);
+
+        if (!$data['lokasi']) {
+            show_404();
+        }
+
+        $this->load->view('lokasi/edit', $data);
+    }
+
+    public function update($id)
+    {
+        $this->load->model('Lokasi_model');
+        $data = [
+            'nama_lokasi' => $this->input->post('nama_lokasi'),
+            'negara' => $this->input->post('negara'),
+            'provinsi' => $this->input->post('provinsi'),
+            'kota' => $this->input->post('kota'),
+        ];
+
+        $this->Lokasi_model->update($id, $data);
+        redirect('lokasi');
     }
 
     public function delete($id)

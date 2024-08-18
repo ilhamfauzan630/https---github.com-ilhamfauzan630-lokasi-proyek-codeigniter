@@ -13,6 +13,15 @@ class Proyek_model extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function get_by_id($id) {
+        return $this->db->get_where('proyek', ['id' => $id])->row();
+    }
+
+    public function update($id, $data) {
+        $this->db->where('id', $id);
+        return $this->db->update('proyek', $data);
+    }
     
     public function delete_proyek($id)
     {

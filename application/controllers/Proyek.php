@@ -22,9 +22,10 @@ class Proyek extends CI_Controller
         $this->load->view('proyek/tambah');
     }
 
-    public function kirim() {
+    public function kirim()
+    {
         $this->load->model('Proyek_model');
-        
+
         // Validasi data input
         $this->form_validation->set_rules('nama_proyek', 'Nama Proyek', 'required');
         $this->form_validation->set_rules('client', 'Client', 'required');
@@ -57,7 +58,30 @@ class Proyek extends CI_Controller
 
     public function edit($id)
     {
-        // Logika untuk mengedit data proyek lokasi
+        $this->load->model('Proyek_model');
+        $data['proyek'] = $this->Proyek_model->get_by_id($id);
+
+        if (!$data['proyek']) {
+            show_404();
+        }
+
+        $this->load->view('proyek/edit', $data);
+    }
+
+    public function update($id)
+    {
+        $this->load->model('Proyek_model');
+        $data = [
+            'nama_proyek' => $this->input->post('nama_proyek'),
+            'client' => $this->input->post('client'),
+            'tgl_mulai' => $this->input->post('tgl_mulai'),
+            'tgl_selesai' => $this->input->post('tgl_selesai'),
+            'pimpinan_proyek' => $this->input->post('pimpinan_proyek'),
+            'keterangan' => $this->input->post('keterangan'),
+        ];
+
+        $this->Proyek_model->update($id, $data);
+        redirect('proyek');
     }
 
     public function delete($id)
@@ -66,7 +90,6 @@ class Proyek extends CI_Controller
         if ($this->Proyek_model->delete_proyek((int)$id)) {
             redirect('proyek');
         } else {
-            // Handle error, maybe show an error message
             echo "Failed to delete.";
         }
     }

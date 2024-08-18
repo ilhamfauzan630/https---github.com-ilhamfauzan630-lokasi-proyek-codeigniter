@@ -41,7 +41,6 @@
                         <td><?php echo $pl->tgl_selesai; ?></td>
                         <td><?php echo $pl->keterangan; ?></td>
                         <td>
-                            <a href="<?php echo site_url('proyeklokasi/edit/' . $pl->id); ?>" class="btn btn-warning btn-sm">Edit</a>
                             <a href="<?php echo site_url('proyeklokasi/delete/' . $pl->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
                         </td>
                     </tr>
