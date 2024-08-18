@@ -7,12 +7,13 @@
 </head>
 
 <body>
+    <a href="<?= site_url('proyeklokasi') ?>" class="btn btn-secondary" style="margin-left: 20px; margin-top:20px" ;>Kembali</a>
     <div class="container mt-5">
         <h2 class="mb-4">Daftar Lokasi</h2>
         <a href="<?php echo site_url('lokasi/tambah'); ?>" class="btn btn-outline-primary">Tambah Lokasi</a>
 
         <br><br>
-        
+
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -32,7 +33,7 @@
                         <td><?php echo $lk->negara; ?></td>
                         <td><?php echo $lk->provinsi; ?></td>
                         <td><?php echo $lk->kota; ?></td>
-                        <td><?php echo $lk->created_at ; ?></td>
+                        <td><?php echo $lk->created_at; ?></td>
                         <td>
                             <a href="<?php echo site_url('lokasi/edit/' . $lk->id); ?>" class="btn btn-warning btn-sm">Edit</a>
                             <a href="<?php echo site_url('lokasi/delete/' . $lk->id); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>

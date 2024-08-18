@@ -7,6 +7,8 @@
 </head>
 
 <body>
+    <a href="<?= site_url('lokasi') ?>" class="btn btn-secondary" style="margin-left: 20px; margin-top:20px" ;>Kembali</a>
+
     <?php echo validation_errors(); ?>
     <div class="container mt-5">
         <div class="row justify-content-center">

@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    <a href="<?= site_url('proyek') ?>" class="btn btn-secondary" style="margin-left: 20px; margin-top:20px" ;>Kembali</a>
     <?php echo validation_errors(); ?>
     <div class="container">
         <div class="row justify-content-center">

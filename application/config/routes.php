@@ -56,3 +56,5 @@ $route['proyek/tambah'] = 'proyek/tambah';
 $route['proyek/kirim'] = 'proyek/kirim';
 $route['lokasi/tambah'] = 'lokasi/tambah';
 $route['lokasi/kirim'] = 'lokasi/kirim';
+$route['proyeklokasi/tambah'] = 'ProyekLokasi/tambah';
+$route['proyeklokasi/hapus'] = 'ProyekLokasi/hapus';

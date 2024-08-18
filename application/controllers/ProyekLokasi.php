@@ -16,6 +16,30 @@ class Proyeklokasi extends CI_Controller
         $this->load->view('proyeklokasi/index', $data);
     }
 
+    public function tambah()
+    {
+        $this->load->model('Proyek_model');
+        $this->load->model('Lokasi_model');
+
+        $data['proyek'] = $this->Proyek_model->get_all();
+        $data['lokasi'] = $this->Lokasi_model->get_all();
+
+        $this->load->view('proyeklokasi/tambah', $data);
+    }
+
+    public function kirim()
+    {
+        $this->load->model('ProyekLokasi_model');
+
+        $data = [
+            'proyek_id' => $this->input->post('proyek_id'),
+            'lokasi_id' => $this->input->post('lokasi_id'),
+        ];
+
+        $this->ProyekLokasi_model->insert($data);
+        redirect('proyeklokasi');
+    }
+
     public function edit($id)
     {
         // Logika untuk mengedit data proyek lokasi

@@ -7,12 +7,13 @@
 </head>
 
 <body>
+    <a href="<?= site_url('proyeklokasi') ?>" class="btn btn-secondary" style="margin-left: 20px; margin-top:20px";>Kembali</a>
     <div class="container mt-5">
         <h2 class="mb-4">Daftar Proyek</h2>
         <a href="<?php echo site_url('proyek/tambah'); ?>" class="btn btn-outline-primary">Tambah Proyek</a>
 
         <br><br>
-        
+
         <table class="table table-bordered">
             <thead>
                 <tr>
